@@ -1,0 +1,21 @@
+package com.learning.web;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Problem1 {
+  	public static void main(String[] args) {
+  		List<List<String>> listOfSkill = Arrays.asList(
+  				Arrays.asList("Spring","Hibernate","Java 8 feature"),
+  				Arrays.asList("DBMS","No SQL"),
+  				Arrays.asList("Kubernates", "Docker"));
+  		
+  		// Grouping into a Single List.
+  		List<String> skill = listOfSkill.stream().flatMap(l -> l.stream()).collect(Collectors.toList());
+  		System.out.println(skill);
+  		
+  		// Collecting all string starts with "S"
+  		System.out.println(skill.stream().filter(x -> x.startsWith("S")).collect(Collectors.toList()));
+  	}
+}
